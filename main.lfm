@@ -1,0 +1,81 @@
+object Form1: TForm1
+  Left = 1520
+  Height = 587
+  Top = 250
+  Width = 1012
+  Caption = 'Form1'
+  ClientHeight = 587
+  ClientWidth = 1012
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 587
+    Top = 0
+    Width = 1012
+    ActivePage = TabSheet1
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'TabSheet1'
+      ClientHeight = 558
+      ClientWidth = 1002
+      object Panel1: TPanel
+        Left = 0
+        Height = 558
+        Top = 0
+        Width = 1002
+        Align = alClient
+        Caption = 'Panel1'
+        TabOrder = 0
+      end
+      object Image1: TImage
+        Left = 24
+        Height = 90
+        Top = 24
+        Width = 90
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'TabSheet2'
+      ClientHeight = 558
+      ClientWidth = 1002
+      object Panel2: TPanel
+        Left = 0
+        Height = 558
+        Top = 0
+        Width = 1002
+        Align = alClient
+        Caption = 'Panel2'
+        TabOrder = 0
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'TabSheet3'
+      ClientHeight = 558
+      ClientWidth = 1002
+      object Panel3: TPanel
+        Left = 0
+        Height = 558
+        Top = 0
+        Width = 1002
+        Align = alClient
+        Caption = 'Panel3'
+        TabOrder = 0
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'TabSheet4'
+      ClientHeight = 558
+      ClientWidth = 1002
+      object Panel4: TPanel
+        Left = 0
+        Height = 558
+        Top = 0
+        Width = 1002
+        Align = alClient
+        Caption = 'Panel4'
+        TabOrder = 0
+      end
+    end
+  end
+end
