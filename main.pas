@@ -12,7 +12,10 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    Image1: TImage;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Image5: TImage;
     PageControl1: TPageControl;
     Panel1: TPanel;
     Panel2: TPanel;
