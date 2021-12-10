@@ -1,9 +1,11 @@
 
 package ficctos;
 
+import java.awt.Button;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 /**
  *
@@ -22,13 +24,49 @@ public class MainForm extends javax.swing.JFrame {
         this.setSize((3*x)/4, (3*y)/4);
         this.setLocation(x/2- ((3*x)/4)/2,y/2 -((3*y)/4)/2);
         this.setTitle("FicctOs");   
-        this.jLabel1.setSize(this.getSize().width,this.getSize().height - 30);
+        initTabbedPaneComponents();
+      /*  this.jLabel1.setSize(this.getSize().width,this.getSize().height - 30);
         Image img= new ImageIcon("recursos/imagenes/background/background.png").getImage();
         ImageIcon img2=new ImageIcon(img.getScaledInstance(this.getSize().width,this.getSize().height - 30, Image.SCALE_DEFAULT));  
-        this.jLabel1.setIcon(img2);
+        this.jLabel1.setIcon(img2);*/
+      
+ 
 
     }
 
+    private void initTabbedPaneComponents(){
+        jTabbedPane1.setBounds(0,0,5*this.getWidth()/8,this.getHeight());
+        int meta = jTabbedPane1.getComponentCount();
+        javax.swing.JPanel panel;
+        Image img= new ImageIcon("recursos/imagenes/background/background.png").getImage();
+        ImageIcon img2; 
+        javax.swing.JLabel label;
+        
+        String names[] ={"Ofimatica","Desarrollo","Juegos"};
+        for (int i=0; i<meta;i++){
+          panel = (javax.swing.JPanel)jTabbedPane1.getComponent(i);
+          panel.setBounds(0,0,jTabbedPane1.getWidth(),jTabbedPane1.getHeight());
+          img2 = new ImageIcon(img.getScaledInstance(panel.getWidth(),panel.getHeight(), Image.SCALE_DEFAULT));
+          label = new javax.swing.JLabel();
+          panel.add(label);
+          label.setBounds(0,0,panel.getWidth(),panel.getHeight());
+          label.setIcon(img2);
+          jTabbedPane1.setTitleAt(i, names[i]);
+          
+        }
+
+        //initButtonComponent(jButton1, "recursos/imagenes/background/iconLazarus.png");
+    }
+    
+    private void initPanelComponents(){
+        jPanel5.setBounds(this.getWidth()/2+1,0,getWidth()/2-1,getHeight());
+    }
+    
+    private void initButtonComponent(javax.swing.JButton button, String url){
+        Image img = new ImageIcon(url).getImage();
+        ImageIcon img2 = new ImageIcon(img.getScaledInstance(button.getWidth(), button.getHeight(),Image.SCALE_DEFAULT));
+        button.setIcon(img2);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,14 +76,28 @@ public class MainForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 650, 340);
+        jPanel1.setLayout(null);
+        jTabbedPane1.addTab("tab1", jPanel1);
+
+        jPanel3.setLayout(null);
+        jTabbedPane1.addTab("tab3", jPanel3);
+
+        jPanel2.setLayout(null);
+        jTabbedPane1.addTab("tab2", jPanel2);
+
+        getContentPane().add(jTabbedPane1);
+        jTabbedPane1.setBounds(20, 60, 300, 160);
+        getContentPane().add(jPanel5);
+        jPanel5.setBounds(340, 20, 300, 310);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -84,8 +136,15 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
     }
+    
+    private javax.swing.JButton nuevo;
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
