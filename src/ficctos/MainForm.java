@@ -16,6 +16,8 @@ public class MainForm extends javax.swing.JFrame {
     /**
      * Creates new form MainForm
      */
+    
+    private int c=0;
     public MainForm() {
         initComponents();
         this.setResizable(false);
@@ -23,14 +25,10 @@ public class MainForm extends javax.swing.JFrame {
         int y=Toolkit.getDefaultToolkit().getScreenSize().height;
         this.setSize((3*x)/4, (3*y)/4);
         this.setLocation(x/2- ((3*x)/4)/2,y/2 -((3*y)/4)/2);
-        this.setTitle("FicctOs");   
+        this.setTitle("FICCT-OS App");   
         initTabbedPaneComponents();
-      /*  this.jLabel1.setSize(this.getSize().width,this.getSize().height - 30);
-        Image img= new ImageIcon("recursos/imagenes/background/background.png").getImage();
-        ImageIcon img2=new ImageIcon(img.getScaledInstance(this.getSize().width,this.getSize().height - 30, Image.SCALE_DEFAULT));  
-        this.jLabel1.setIcon(img2);*/
-      
- 
+        iniciarDescripcion();
+
 
     }
 
@@ -42,7 +40,7 @@ public class MainForm extends javax.swing.JFrame {
         ImageIcon img2; 
         javax.swing.JLabel label;
         
-        String names[] ={"Ofimatica","Desarrollo","Juegos"};
+        String names[] ={"1er Semestre","2do Semestre","3er Semestre","4to Semestre","5to Semestre"};
         for (int i=0; i<meta;i++){
           panel = (javax.swing.JPanel)jTabbedPane1.getComponent(i);
           panel.setBounds(0,0,jTabbedPane1.getWidth(),jTabbedPane1.getHeight());
@@ -53,19 +51,25 @@ public class MainForm extends javax.swing.JFrame {
           label.setIcon(img2);
           jTabbedPane1.setTitleAt(i, names[i]);
           
+          
         }
 
         //initButtonComponent(jButton1, "recursos/imagenes/background/iconLazarus.png");
     }
     
-    private void initPanelComponents(){
-        jPanel5.setBounds(this.getWidth()/2+1,0,getWidth()/2-1,getHeight());
-    }
-    
-    private void initButtonComponent(javax.swing.JButton button, String url){
-        Image img = new ImageIcon(url).getImage();
-        ImageIcon img2 = new ImageIcon(img.getScaledInstance(button.getWidth(), button.getHeight(),Image.SCALE_DEFAULT));
-        button.setIcon(img2);
+
+    public void iniciarDescripcion(){
+        
+        jPanel5.setBounds(5*this.getWidth()/8, 0,3*this.getWidth()/8,this.getHeight());
+        int a = jPanel5.getWidth()/8;
+        jLabel1.setBounds(a,a,jPanel5.getWidth()-2*a,(jPanel5.getHeight()-3*a)/3);
+        Image img= new ImageIcon("recursos/imagenes/iconos/ficctOs.png").getImage();
+        ImageIcon img2 = new ImageIcon(img.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(), Image.SCALE_DEFAULT));
+        jLabel1.setIcon(img2);
+        jScrollPane1.setBounds(a,2*a+jLabel1.getHeight(), jPanel5.getWidth()-2*a,jPanel5.getHeight()-3*a-jLabel1.getHeight());
+        jButton1.setBounds(a,a+jLabel1.getHeight(), jPanel5.getWidth()-2*a,a);
+        jButton1.setText("Iniciar");
+       // jButton1.setVisible(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,7 +84,13 @@ public class MainForm extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -94,8 +104,36 @@ public class MainForm extends javax.swing.JFrame {
         jPanel2.setLayout(null);
         jTabbedPane1.addTab("tab2", jPanel2);
 
+        jPanel4.setLayout(null);
+        jTabbedPane1.addTab("tab4", jPanel4);
+
+        jPanel6.setLayout(null);
+        jTabbedPane1.addTab("tab5", jPanel6);
+
         getContentPane().add(jTabbedPane1);
         jTabbedPane1.setBounds(20, 60, 300, 160);
+
+        jPanel5.setLayout(null);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setTabSize(5);
+        jTextArea1.setText("Esta aplicacion fue desarrollada\npor el grupo de estudiantes\nparte del nucleoLinuxUagrm\nde la facultad de Cs de la\ncomputacion y telecomunicaciones.\nPara tener un mejor \nacceso a las aplicaciones \npreinstaladas en la distribucion\nFicctOs , y facilitar el uso a los\nestudiantes.\n");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel5.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 130, 280, 170);
+
+        jLabel1.setText("jLabel1");
+        jPanel5.add(jLabel1);
+        jLabel1.setBounds(70, 40, 120, 50);
+
+        jButton1.setText("jButton1");
+        jPanel5.add(jButton1);
+        jButton1.setBounds(80, 100, 70, 28);
+
         getContentPane().add(jPanel5);
         jPanel5.setBounds(340, 20, 300, 310);
 
@@ -141,10 +179,16 @@ public class MainForm extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
