@@ -177,26 +177,8 @@ public class MainForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-                try {
-            /*   try
-            {
-            File file = new File("/home/daniel/Escritorio/android.desktop");
-            if(!Desktop.isDesktopSupported())
-            {
-            System.out.println("not supported");
-            return;
-            }
-            Desktop desktop = Desktop.getDesktop();
-            if(file.exists())
-            desktop.open(file);
-            
-            }
-            catch(Exception e)
-            {
-            e.printStackTrace();
-            System.out.println("Error al abrir el archivo");
-            }*/  
-            String path = "$HOME/.lazarus/bin/lazarus";
+        try {
+            String path = "/usr/bin/startlazarus-2.0.6";
             String[] command = {"exec",path};
             Process process = Runtime.getRuntime().exec(command);
         } catch (IOException ex) {
