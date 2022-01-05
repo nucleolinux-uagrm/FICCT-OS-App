@@ -178,9 +178,7 @@ public class MainForm extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try {
-            String path = "/usr/bin/startlazarus-2.0.6";
-            String[] command = {"exec",path};
-            Process process = Runtime.getRuntime().exec(command);
+            Process process = Runtime.getRuntime().exec("/usr/bin/startlazarus-2.0.6 %f &");
         } catch (IOException ex) {
             jTextArea1.setText("no existe el archivo");
         }
