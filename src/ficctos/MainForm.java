@@ -1,11 +1,13 @@
 
 package ficctos;
 
-import java.awt.Button;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.IOException;
+import java.lang.System.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 
 /**
  *
@@ -17,7 +19,7 @@ public class MainForm extends javax.swing.JFrame {
      * Creates new form MainForm
      */
     
-    private int c=0;
+    private Object ultimoClick;
     public MainForm() {
         initComponents();
         this.setResizable(false);
@@ -28,15 +30,38 @@ public class MainForm extends javax.swing.JFrame {
         this.setTitle("FICCT-OS App");   
         initTabbedPaneComponents();
         iniciarDescripcion();
+        this.jButton2= iniciarBoton(this.jButton2,10,10);
 
-
+    }
+    
+    private javax.swing.JButton iniciarBoton(javax.swing.JButton b,int posx,int posy){
+        int x = 5*this.getWidth()/8;
+        int y =this.getHeight();
+        b.setName("nuevo");
+        b.setBounds(posx,posy, y/5,y/5);
+        Image img= new ImageIcon(getClass().getClassLoader().getResource("recursos/imagenes/iconos/lazarus_icon112.png")).getImage();
+        ImageIcon img2 = new ImageIcon(img.getScaledInstance(b.getWidth()/2,b.getHeight()/2, Image.SCALE_DEFAULT));
+        b.setIcon(img2);
+        b.setBorderPainted(false);
+        b.setHorizontalTextPosition(b.CENTER);
+        b.setVerticalTextPosition(b.BOTTOM);
+        b.setFont(new Font("Italic", Font.PLAIN, 18));
+        b.setForeground(Color.WHITE);
+        b.setContentAreaFilled(false);
+        img2 = new ImageIcon(img.getScaledInstance(b.getWidth()*3/4,b.getHeight()*3/4, Image.SCALE_DEFAULT));
+        b.setPressedIcon(img2);
+        
+      //  b.setBackground(Color.BLACK);
+        return b;
     }
 
     private void initTabbedPaneComponents(){
         jTabbedPane1.setBounds(0,0,5*this.getWidth()/8,this.getHeight());
         int meta = jTabbedPane1.getComponentCount();
         javax.swing.JPanel panel;
-        Image img= new ImageIcon("recursos/imagenes/background/background.png").getImage();
+        
+        Image img= new ImageIcon(getClass().getClassLoader().getResource("recursos/imagenes/background/background.png")).getImage();
+        
         ImageIcon img2; 
         javax.swing.JLabel label;
         
@@ -54,7 +79,6 @@ public class MainForm extends javax.swing.JFrame {
           
         }
 
-        //initButtonComponent(jButton1, "recursos/imagenes/background/iconLazarus.png");
     }
     
 
@@ -63,13 +87,13 @@ public class MainForm extends javax.swing.JFrame {
         jPanel5.setBounds(5*this.getWidth()/8, 0,3*this.getWidth()/8,this.getHeight());
         int a = jPanel5.getWidth()/8;
         jLabel1.setBounds(a,a,jPanel5.getWidth()-2*a,(jPanel5.getHeight()-3*a)/3);
-        Image img= new ImageIcon("recursos/imagenes/iconos/ficctOs.png").getImage();
+        Image img= new ImageIcon(getClass().getClassLoader().getResource("recursos/imagenes/iconos/ficctOs.png")).getImage();
         ImageIcon img2 = new ImageIcon(img.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(), Image.SCALE_DEFAULT));
         jLabel1.setIcon(img2);
         jScrollPane1.setBounds(a,2*a+jLabel1.getHeight(), jPanel5.getWidth()-2*a,jPanel5.getHeight()-3*a-jLabel1.getHeight());
         jButton1.setBounds(a,a+jLabel1.getHeight(), jPanel5.getWidth()-2*a,a);
         jButton1.setText("Iniciar");
-       // jButton1.setVisible(false);
+        jButton1.setVisible(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -82,6 +106,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -96,6 +121,16 @@ public class MainForm extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
+
+        jButton2.setText("Lazarus");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(20, 30, 63, 28);
+
         jTabbedPane1.addTab("tab1", jPanel1);
 
         jPanel3.setLayout(null);
@@ -140,6 +175,35 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+                try {
+            /*   try
+            {
+            File file = new File("/home/daniel/Escritorio/android.desktop");
+            if(!Desktop.isDesktopSupported())
+            {
+            System.out.println("not supported");
+            return;
+            }
+            Desktop desktop = Desktop.getDesktop();
+            if(file.exists())
+            desktop.open(file);
+            
+            }
+            catch(Exception e)
+            {
+            e.printStackTrace();
+            System.out.println("Error al abrir el archivo");
+            }*/  
+            String path = "$HOME/.lazarus/bin/lazarus";
+            String[] command = {"exec",path};
+            Process process = Runtime.getRuntime().exec(command);
+        } catch (IOException ex) {
+            jTextArea1.setText("no existe el archivo");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -180,6 +244,7 @@ public class MainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
