@@ -5,9 +5,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.io.IOException;
-import java.lang.System.Logger;
+import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.xml.transform.OutputKeys;
 
 /**
  *
@@ -18,8 +19,9 @@ public class MainForm extends javax.swing.JFrame {
     /**
      * Creates new form MainForm
      */
+    public String click="";
     
-    private Object ultimoClick;
+    
     public MainForm() {
         initComponents();
         this.setResizable(false);
@@ -28,31 +30,86 @@ public class MainForm extends javax.swing.JFrame {
         this.setSize((3*x)/4, (3*y)/4);
         this.setLocation(x/2- ((3*x)/4)/2,y/2 -((3*y)/4)/2);
         this.setTitle("FICCT-OS App");   
+        iniciarBotones();
         initTabbedPaneComponents();
         iniciarDescripcion();
-        this.jButton2= iniciarBoton(this.jButton2,10,10);
-
     }
     
-    private javax.swing.JButton iniciarBoton(javax.swing.JButton b,int posx,int posy){
-        int x = 5*this.getWidth()/8;
+    private void iniciarBotones(){
+        
+        String nombres[]={"PseInt","Lazarus","Gambas3","Lazarus","Gambas3","Spyder","Eclipse","Netbeans","CodeBlocks","Workbench","Swi-Prolog","Rustdesk","ThunderBird","LibreOffice","Ranger","Gparted","Terminator","NL-UAGRM","NL-Facebook","NL-Telegram","NL-Github"};
+        String path="recursos/imagenes/iconos/";
+        int limites[]={2,6,8,10,16,nombres.length-1};
+        int j=0;
         int y =this.getHeight();
-        b.setName("nuevo");
-        b.setBounds(posx,posy, y/5,y/5);
-        Image img= new ImageIcon(getClass().getClassLoader().getResource("recursos/imagenes/iconos/lazarus_icon112.png")).getImage();
-        ImageIcon img2 = new ImageIcon(img.getScaledInstance(b.getWidth()/2,b.getHeight()/2, Image.SCALE_DEFAULT));
-        b.setIcon(img2);
-        b.setBorderPainted(false);
+        for (int i=0;i<limites.length;i++){
+            int p=0;
+            for (;j<=limites[i];j++){
+                JButton boton=new JButton();
+                javax.swing.JPanel panel = (javax.swing.JPanel)jTabbedPane1.getComponent(i);
+                panel.add(boton);
+               
+                if (p % 2 == 0)
+                iniciarBoton(boton, 10, p*(y/8)+10, nombres[j], path+nombres[j]+".png");
+                else
+                iniciarBoton(boton, 40+y/5, (p-1)*(y/8)+10,nombres[j], path+nombres[j]+".png");
+                p++;
+                addEvent(boton,nombres[j]);
+                
+            }
+            
+
+        }
+        
+    }
+    
+    private void iniciarBoton(javax.swing.JButton b,int posx,int posy,String nombre,String pathIcon){
+        int y =this.getHeight();
+        b.setBounds(posx,posy, y/4,y/4);
+        b.setText(nombre);
         b.setHorizontalTextPosition(b.CENTER);
         b.setVerticalTextPosition(b.BOTTOM);
         b.setFont(new Font("Italic", Font.PLAIN, 18));
         b.setForeground(Color.WHITE);
+        
+       try{ 
+        Image img= new ImageIcon(getClass().getClassLoader().getResource(pathIcon)).getImage();
+        ImageIcon img2 = new ImageIcon(img.getScaledInstance(b.getWidth()/2,b.getHeight()/2, Image.SCALE_DEFAULT));
+        b.setIcon(img2);
+        b.setBorderPainted(false);
         b.setContentAreaFilled(false);
         img2 = new ImageIcon(img.getScaledInstance(b.getWidth()*3/4,b.getHeight()*3/4, Image.SCALE_DEFAULT));
         b.setPressedIcon(img2);
-        
-      //  b.setBackground(Color.BLACK);
-        return b;
+       }catch(Exception e){
+           b.setBackground(Color.BLACK);
+       }
+
+    }
+    
+    
+    private void addEvent(JButton boton,String nombre){
+        boton.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                click=nombre;
+                String x;
+                try{    x=Description.getDescripcion(getClass().getClassLoader().getResource("recursos/imagenes/descripciones/"+nombre+".txt").toURI());}
+                catch(Exception e){
+                    x="no encontrado";
+                }
+                    jTextArea1.setText(x);
+            try{    Image img= new ImageIcon(getClass().getClassLoader().getResource("recursos/imagenes/background/"+nombre+".png")).getImage();
+                    ImageIcon img2 = new ImageIcon(img.getScaledInstance(jLabel1.getWidth(),jLabel1.getHeight(), Image.SCALE_DEFAULT));
+                    jLabel1.setIcon(img2);
+                }catch(Exception e){
+                    jLabel1.setIcon(null);
+                    jLabel1.setText("Imagen no Encontrada");
+                }finally{
+                    jButton1.setVisible(true);
+                }
+              
+            }
+        });
     }
 
     private void initTabbedPaneComponents(){
@@ -65,24 +122,24 @@ public class MainForm extends javax.swing.JFrame {
         ImageIcon img2; 
         javax.swing.JLabel label;
         
-        String names[] ={"1er Semestre","2do Semestre","3er Semestre","4to Semestre","5to Semestre"};
+        String names[] ={"1er Semestre","2do Semestre","3er,4to Semestre","5to Semestre","Utilidades","sobre"};
         for (int i=0; i<meta;i++){
           panel = (javax.swing.JPanel)jTabbedPane1.getComponent(i);
           panel.setBounds(0,0,jTabbedPane1.getWidth(),jTabbedPane1.getHeight());
           img2 = new ImageIcon(img.getScaledInstance(panel.getWidth(),panel.getHeight(), Image.SCALE_DEFAULT));
           label = new javax.swing.JLabel();
+          label.setIcon(img2);
           panel.add(label);
           label.setBounds(0,0,panel.getWidth(),panel.getHeight());
-          label.setIcon(img2);
+          
           jTabbedPane1.setTitleAt(i, names[i]);
-          
-          
+           
         }
 
     }
     
 
-    public void iniciarDescripcion(){
+    private void iniciarDescripcion(){
         
         jPanel5.setBounds(5*this.getWidth()/8, 0,3*this.getWidth()/8,this.getHeight());
         int a = jPanel5.getWidth()/8;
@@ -104,49 +161,21 @@ public class MainForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        jPanel1.setLayout(null);
-
-        jButton2.setText("Lazarus");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(20, 30, 63, 28);
-
-        jTabbedPane1.addTab("tab1", jPanel1);
-
-        jPanel3.setLayout(null);
-        jTabbedPane1.addTab("tab3", jPanel3);
-
-        jPanel2.setLayout(null);
-        jTabbedPane1.addTab("tab2", jPanel2);
-
-        jPanel4.setLayout(null);
-        jTabbedPane1.addTab("tab4", jPanel4);
-
-        jPanel6.setLayout(null);
-        jTabbedPane1.addTab("tab5", jPanel6);
-
-        getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(20, 60, 300, 160);
 
         jPanel5.setLayout(null);
 
@@ -166,26 +195,61 @@ public class MainForm extends javax.swing.JFrame {
         jLabel1.setBounds(70, 40, 120, 50);
 
         jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton1);
-        jButton1.setBounds(80, 100, 70, 28);
+        jButton1.setBounds(70, 100, 70, 28);
 
         getContentPane().add(jPanel5);
         jPanel5.setBounds(340, 20, 300, 310);
 
+        jPanel1.setLayout(null);
+        jTabbedPane1.addTab("tab1", jPanel1);
+
+        jPanel3.setLayout(null);
+        jTabbedPane1.addTab("tab3", jPanel3);
+
+        jPanel2.setLayout(null);
+        jTabbedPane1.addTab("tab2", jPanel2);
+
+        jPanel4.setLayout(null);
+        jTabbedPane1.addTab("tab4", jPanel4);
+
+        jPanel7.setLayout(null);
+        jTabbedPane1.addTab("tab6", jPanel7);
+
+        jPanel6.setLayout(null);
+        jTabbedPane1.addTab("tab5", jPanel6);
+
+        getContentPane().add(jTabbedPane1);
+        jTabbedPane1.setBounds(20, 60, 300, 160);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        try {
-            String path = "/usr/bin/startlazarus-2.0.6 %f &";
-            String[] command = {"exec",path};
-            Process process = Runtime.getRuntime().exec(path);
-        } catch (IOException ex) {
-            jTextArea1.setText("no existe el archivo");
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String comando="";
+        switch (click) {
+            case "PseInt":
+                //comando=
+                break;
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+        ejecutarComando(comando);
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void ejecutarComando(String comando){
+        try {
+            Process process = Runtime.getRuntime().exec(comando);
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(null, "El programa fue\nelimindado o modificado", "Ups", javax.swing.JOptionPane.WARNING_MESSAGE);
+            
+        }  
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -221,12 +285,11 @@ public class MainForm extends javax.swing.JFrame {
         });
     }
     
-    private javax.swing.JButton nuevo;
-    
+   
+    //private String commands={"terminator","lazarus"};
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -234,6 +297,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;

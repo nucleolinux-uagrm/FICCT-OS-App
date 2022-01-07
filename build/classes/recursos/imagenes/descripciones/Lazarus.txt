@@ -1,0 +1,14 @@
+Lazarus es una herramienta de 
+desarrollo rápido de aplica-
+ciones (RAD) basada en el 
+lenguaje de programación Object
+Pascal,Se trata de una 
+alternativa libre y gratuita
+a Delphi, desarrollada como
+proyecto de software libre
+a partir de Free Pascal.
+La web y la mayoría de la
+documentación están en inglés,
+pero el entorno de desarrollo
+(IDE) sí está traducido al
+español en gran parte. 

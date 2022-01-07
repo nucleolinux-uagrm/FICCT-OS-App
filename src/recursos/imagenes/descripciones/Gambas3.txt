@@ -1,0 +1,13 @@
+Gambas es un lenguaje de 
+programación libre derivado
+de BASIC (de ahí que Gambas
+quiere decir Gambas Almost 
+Means Basic).
+Permite crear formularios con
+botones de comandos,cuadros de
+texto y muchos otros controles
+y enlazarlos a bases de datos
+como MySQL, PostgreSQL o 
+SQLite además de facilita la
+creación de aplicaciones muy
+diversas como videojuegos.

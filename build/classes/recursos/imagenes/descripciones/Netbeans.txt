@@ -1,0 +1,10 @@
+NetBeans es un entorno de 
+desarrollo integrado libre,
+hecho principalmente para el
+lenguaje de programación Java.
+Existe además un número 
+importante de módulos para
+extenderlo. NetBeans IDE​ 
+es un producto libre y
+gratuito sin restricciones
+de uso.
