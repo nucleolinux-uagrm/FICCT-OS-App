@@ -1,0 +1,7 @@
+Mozilla Thunderbird, es un cliente de correo
+electrónico multiplataforma, libre y de 
+código abierto, cliente de noticias, cliente
+de RSS y de chat desarrollado por la 
+Fundación Mozilla.
+
+visita: https://www.thunderbird.net/es-ES/

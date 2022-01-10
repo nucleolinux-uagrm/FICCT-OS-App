@@ -1,0 +1,9 @@
+Terminator es un emulador de terminal
+para sistemas tipo Linux y Unix que 
+permite al usuario crear multiples
+terminales en una sola ventana y 
+organizarlos en cuadriculas.
+Terminator tiene la flexibilidad de 
+cambiar de tamaño según la necesidad.
+
+visita: https://terminator-gtk3.readthedocs.io/

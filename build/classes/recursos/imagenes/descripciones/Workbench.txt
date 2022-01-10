@@ -1,0 +1,8 @@
+MySQL Workbench es una herramienta visual 
+de diseño de bases de datos que integra 
+desarrollo de software, administración 
+de bases de datos, diseño de bases de 
+datos, gestión y mantenimiento para el 
+sistema de base de datos MySQL.
+
+visita: https://www.mysql.com/products/workbench/

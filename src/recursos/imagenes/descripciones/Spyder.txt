@@ -10,3 +10,5 @@ se conoce como el IDE de
 desarrollo científico de
 Python y tiene un gran conjunto
 de características notables
+
+visita: https://www.spyder-ide.org/

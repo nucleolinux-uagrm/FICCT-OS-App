@@ -12,3 +12,6 @@ documentación están en inglés,
 pero el entorno de desarrollo
 (IDE) sí está traducido al
 español en gran parte. 
+
+
+visita: https://www.lazarus-ide.org/

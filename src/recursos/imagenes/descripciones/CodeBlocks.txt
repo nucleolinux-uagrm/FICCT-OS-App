@@ -1,0 +1,12 @@
+Code::Blocks es un entorno de desarrollo integrado
+de código abierto, que soporta multiples compiladores
+que incluyen GCC, Clang y Visual C++.
+Se desarrollo en C++ usando wxWidgets como el kit de 
+herrramientas GUI.
+Debido a que Dev-C++ es un IDE para los lenguajes C y 
+C++ y esta creado en Delphi, surgió la idea y la 
+necesidad de crear un IDE hecho en los lenguajes
+adecuados. C y C++. Con esta motivación se creó
+Code::Blocks
+
+visita: https://www.codeblocks.org/
