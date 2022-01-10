@@ -1,0 +1,11 @@
+Rustdesk es una aplicación de Escritorio
+que tiene las siguientes caracteristicas:
+- Acceder de forma remota a otra pc.
+- Trasnferencia de archivos incorporado.
+- tunelización por TCP.
+- Escrito en lenguaje Rust.
+- Ligero.
+
+RustDesk es un cliente de código abierto.
+
+visita: https://rustdesk.com/

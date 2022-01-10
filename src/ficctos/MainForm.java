@@ -8,7 +8,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.xml.transform.OutputKeys;
+
 
 /**
  *
@@ -93,7 +93,9 @@ public class MainForm extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent event) {
                 click=nombre;
                 String x;
-                try{    x=Description.getDescripcion(getClass().getClassLoader().getResource("recursos/imagenes/descripciones/"+nombre+".txt").toURI());}
+                try{    //x=Description.getDescripcion(getClass().getClassLoader().getResource("recursos/imagenes/descripciones/"+nombre+".txt").toURI());
+                        x=Description.darDescripcion(getClass().getClassLoader().getResourceAsStream("recursos/imagenes/descripciones/"+nombre+".txt"));
+                }
                 catch(Exception e){
                     x="no encontrado";
                 }
@@ -233,9 +235,65 @@ public class MainForm extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String comando="";
         switch (click) {
-            case "PseInt":
-                //comando=
+            case "Lazarus":
+                comando="/usr/bin/lazarus-ide-2.0.6 %f";
                 break;
+            case "PseInt":
+                comando="/usr/share/pseint/bin/../wxPSeInt";
+                break;    
+            case "Gambas3":
+                comando="/usr/bin/gambas3";
+                break;
+            case "Spyder":
+                comando="/usr/local/bin/spyder";
+                break;
+            case "Eclipse":
+                comando="/usr/share/eclipse/eclipse";
+                break;
+            case "Netbeans":
+                comando="/bin/sh /usr/share/netbeans-12.6/netbeans/bin/netbeans";
+                break;
+            case "CodeBlocks":
+                comando="/usr/bin/codeblocks %F";
+                break;
+            case "Workbench":
+                comando="/usr/bin/mysql-workbench %f";
+                break;
+            case "Swi-Prolog":
+                comando="/usr/bin/terminator -e swipl";
+                break;
+            case "Rustdesk":
+                comando="/usr/bin/rustdesk";
+                break;
+            case "ThunderBird":
+                comando="/usr/bin/thunderbird";
+                break;
+            case "Ranger":
+                comando="/usr/bin/terminator --working-directory=/home/ -e ranger";
+                break;
+            case "Gparted":
+                comando="/usr/sbin/gparted";
+                break;
+            case "LibreOffice":
+                comando="/usr/bin/libreoffice";
+                break;
+            case "Terminator":
+                comando="/usr/bin/terminator --working-directory=/home/";
+                break;
+            case "NL-UAGRM":
+                comando="gnome-www-browser https://nucleolinux.org";
+                break;
+            case "NL-Facebook":
+                comando="gnome-www-browser https://www.facebook.com/groups/nucleolinux.uagrm";
+                break;
+            case "NL-Telegram":
+                comando="gnome-www-browser https://t.me/nucleolinux_uagrm";
+                break;
+            case "NL-Github":
+                comando="gnome-www-browser https://github.com/nucleolinux-uagrm";
+                break;
+            
+                //finish
         }
         ejecutarComando(comando);
       
@@ -245,7 +303,7 @@ public class MainForm extends javax.swing.JFrame {
         try {
             Process process = Runtime.getRuntime().exec(comando);
         } catch (Exception e) {
-            javax.swing.JOptionPane.showMessageDialog(null, "El programa fue\nelimindado o modificado", "Ups", javax.swing.JOptionPane.WARNING_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(null, "El programa fue\neliminado o modificado", "Ups", javax.swing.JOptionPane.WARNING_MESSAGE);
             
         }  
     }

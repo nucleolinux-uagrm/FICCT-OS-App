@@ -1,0 +1,12 @@
+LibreOfice es una suite de ofimatica 
+de Software Libre y código abierto que
+incluye procesador de texto, planilla de
+cálculo y editor de presentaciones entre otras.
+
+- Crea documentos con Writer.
+- Crea hoja de cálculo con Calc.
+- Crea Presentaciones con Impress.
+- Edita gráficos vectoriales con Draw.
+- Edita fórmulas con Math.
+
+visita: https://es.libreoffice.org/

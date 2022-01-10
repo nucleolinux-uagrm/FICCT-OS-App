@@ -1,0 +1,7 @@
+Gparted es un administrador de particiones  
+que permite cambiar el tamaño, copiar y mover
+particiones sin perdida de datos.
+
+visita: https://gparted.org/
+
+

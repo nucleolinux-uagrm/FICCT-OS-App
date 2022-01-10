@@ -1,0 +1,6 @@
+Ranger es un administrador de archivos para 
+terminal (CLI) permite desplazarse con mayor 
+facilidad en los directorios y editar o 
+visualizar archivos.
+
+visita: https://ranger.github.io/
