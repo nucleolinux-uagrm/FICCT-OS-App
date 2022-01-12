@@ -57,7 +57,7 @@
                 </Property>
                 <Property name="rows" type="int" value="5"/>
                 <Property name="tabSize" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="Esta aplicacion fue desarrollada&#xa;por el grupo de estudiantes&#xa;parte del nucleoLinuxUagrm&#xa;de la facultad de Cs de la&#xa;computacion y telecomunicaciones.&#xa;Para tener un mejor &#xa;acceso a las aplicaciones &#xa;preinstaladas en la distribucion&#xa;FicctOs , y facilitar el uso a los&#xa;estudiantes.&#xa;"/>
+                <Property name="text" type="java.lang.String" value="Esta aplicacion fue desarrollada&#xa;por el grupo de estudiantes&#xa;parte del Nucleo Linux UAGRM&#xa;de la facultad de Cs de la&#xa;computacion y telecomunicaciones.&#xa;Para tener un mejor &#xa;acceso a las aplicaciones &#xa;preinstaladas en la distribuci&#xf3;n&#xa;GNU/Linux FICCT-OS, y facilitar el uso a los&#xa;estudiantes.&#xa;&#xa;Realizado por:&#xa;&#xa;- Daniel Maldonado Gutierrez.&#xa;- Jorge Gary Fernandez Lopez.&#xa;- Juan Vladimir Ramirez Flores.&#xa;- Felix Fernando Apaza Caseres."/>
               </Properties>
             </Component>
           </SubComponents>

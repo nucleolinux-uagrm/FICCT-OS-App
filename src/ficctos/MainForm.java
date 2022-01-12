@@ -186,7 +186,7 @@ public class MainForm extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("Ubuntu", 0, 15)); // NOI18N
         jTextArea1.setRows(5);
         jTextArea1.setTabSize(5);
-        jTextArea1.setText("Esta aplicacion fue desarrollada\npor el grupo de estudiantes\nparte del nucleoLinuxUagrm\nde la facultad de Cs de la\ncomputacion y telecomunicaciones.\nPara tener un mejor \nacceso a las aplicaciones \npreinstaladas en la distribucion\nFicctOs , y facilitar el uso a los\nestudiantes.\n");
+        jTextArea1.setText("Esta aplicacion fue desarrollada\npor el grupo de estudiantes\nparte del Nucleo Linux UAGRM\nde la facultad de Cs de la\ncomputacion y telecomunicaciones.\nPara tener un mejor \nacceso a las aplicaciones \npreinstaladas en la distribución\nGNU/Linux FICCT-OS, y facilitar el uso a los\nestudiantes.\n\nRealizado por:\n\n- Daniel Maldonado Gutierrez.\n- Jorge Gary Fernandez Lopez.\n- Juan Vladimir Ramirez Flores.\n- Felix Fernando Apaza Caseres.");
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel5.add(jScrollPane1);
@@ -203,7 +203,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
         jPanel5.add(jButton1);
-        jButton1.setBounds(70, 100, 70, 28);
+        jButton1.setBounds(70, 100, 67, 29);
 
         getContentPane().add(jPanel5);
         jPanel5.setBounds(340, 20, 300, 310);
@@ -292,6 +292,8 @@ public class MainForm extends javax.swing.JFrame {
             case "NL-Github":
                 comando="gnome-www-browser https://github.com/nucleolinux-uagrm";
                 break;
+            case "NL-Youtube":
+                comando="gnome-www-browser https://www.youtube.com/channel/UCmJaT1dpxRi0wqwP6i3dq0g";
             
                 //finish
         }
