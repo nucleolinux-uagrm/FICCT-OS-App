@@ -37,7 +37,7 @@ public class MainForm extends javax.swing.JFrame {
     
     private void iniciarBotones(){
         
-        String nombres[]={"PseInt","Lazarus","Gambas3","Lazarus","Gambas3","Spyder","Eclipse","Netbeans","CodeBlocks","Workbench","Swi-Prolog","Rustdesk","ThunderBird","LibreOffice","Ranger","Gparted","Terminator","NL-UAGRM","NL-Facebook","NL-Telegram","NL-Github"};
+        String nombres[]={"PseInt","Lazarus","Gambas3","Lazarus","Gambas3","Spyder","Eclipse","Netbeans","CodeBlocks","Workbench","Swi-Prolog","Rustdesk","ThunderBird","LibreOffice","Ranger","Gparted","Terminator","NL-UAGRM","NL-Facebook","NL-Telegram","NL-Github","NL-Youtube"};
         String path="recursos/imagenes/iconos/";
         int limites[]={2,6,8,10,16,nombres.length-1};
         int j=0;
